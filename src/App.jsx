@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-import {createBrowserRouter, RouterProvider} from 'react-router';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Layout from "./Layout.jsx";
 import Home from "./Home.jsx";
-import About from "./About.jsx";
-import FormComponent from "./SpotCreateForm.jsx";
-import ProductComponent from "./SpotList.jsx";
-import Spot from "./Spot.jsx";
-import SpotDetail from "./SpotDetail.jsx";
+import FormComponent from "./PokemonCreateForm.jsx";
+import PokemonDetail from "./PokemonDetail.jsx";
+import PokemonEdit from "./PokemonEdit.jsx";
+import NotFound from "./NotFound.jsx";
 
 const router = createBrowserRouter([
     {
@@ -17,23 +15,21 @@ const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: '/about',
-                element: <About/>
-            },
-            {
-                path: '/spots',
-                element: <ProductComponent/>
-            },
-            {
-                path: '/spots/create',
+                path: '/pokemon/create',
                 element: <FormComponent/>
             },
               {
-                  path: '/spot/:id',
-                  element: <SpotDetail/>
+                  path: '/pokemon/:id',
+                  element: <PokemonDetail/>
               },
+            {
+                path: '/pokemon/edit/:id',
+                element: <PokemonEdit/>
+            },
+
         ]
-    }
+    },
+    { path: '*', element: <NotFound/> }
 ]);
 
 function App() {
